@@ -80,3 +80,44 @@ const someNumbers = {
     n2: 10,
 };
 console.log(multiplyNumbers(someNumbers));
+function doSomething(info) {
+    if (typeof info === "number") {
+        console.log(`o numero é ${info}`);
+        return;
+    }
+    console.log("não foi passado um número");
+}
+doSomething(5);
+doSomething(false);
+function showArraysItems(list) {
+    list.forEach((item) => {
+        console.log(`Item: ${item}`);
+    });
+}
+;
+const list1 = [1, 2, 3, 4, 5];
+const list2 = ["olá", "tudo bem ?", "tchau!"];
+showArraysItems(list1);
+showArraysItems(list2);
+class Users {
+    constructor(name, age, isLogin) {
+        this.name = name;
+        this.age = age;
+        this.isLogin = isLogin;
+    }
+    showUserName() {
+        console.log(`nome do usuário é ${this.name}`);
+    }
+    showUserAge(canShow) {
+        if (canShow) {
+            console.log(`Idade do usuário é de ${user1.age} anos`);
+            return;
+        }
+        console.log("informação restrita");
+    }
+}
+const user1 = new Users("Mateus", 30, true);
+console.log(user1);
+user1.showUserName();
+user1.showUserAge(true);
+user1.showUserAge(false);

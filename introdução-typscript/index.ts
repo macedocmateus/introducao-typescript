@@ -22,6 +22,10 @@
 
 // pronto só aproveitar
 
+// para transcrever typescript para javascript use o comando:
+
+// tsc
+
 // -------------------------------------------->
 
 // ---------variáveis ---------
@@ -189,6 +193,61 @@ const someNumbers: mathFunctionParams = {
 
 console.log(multiplyNumbers(someNumbers)); // aqui só precisou passar a constante someNumbers no console.log pois o retorno da função foi jogada na constante someNumbers
 
+// narrowing ou checagem de tipos
 
+function doSomething(info: number | boolean) {
+  if(typeof info === "number") {
+    console.log(`o numero é ${info}`);
+    return;
+  }
+  console.log("não foi passado um número");
+}
 
+doSomething(5);
+doSomething(false);
 
+// generics ou dados genéricos
+
+function showArraysItems<T>(list: T[]) { // o T representa dados genéricos que estaram dentro do array
+  list.forEach((item) => {
+    console.log(`Item: ${item}`);
+  });
+};
+
+const list1 = [1,2,3,4,5];
+const list2 = ["olá", "tudo bem ?", "tchau!"];
+
+showArraysItems(list1);
+showArraysItems(list2);
+
+// classes
+class Users {
+  name
+  age
+  isLogin
+
+  constructor(name: string, age:number, isLogin: boolean) {
+    this.name = name
+    this.age = age
+    this.isLogin = isLogin
+  }
+
+  showUserName() {
+    console.log(`nome do usuário é ${this.name}`);
+  }
+  
+  showUserAge(canShow: boolean) {
+    if (canShow) {
+      console.log(`Idade do usuário é de ${user1.age} anos`);
+      return
+    }
+    console.log("informação restrita");
+  }
+}
+
+const user1 = new Users("Mateus", 30, true)
+console.log(user1);
+
+user1.showUserName();
+user1.showUserAge(true);
+user1.showUserAge(false);
