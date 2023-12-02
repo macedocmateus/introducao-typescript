@@ -187,7 +187,7 @@ const someNumbers: mathFunctionParams = {
   n2: 10,
 }
 
-console.log(multiplyNumbers(someNumbers)); // aqui só precisou passar a variaveis pois o retorno da função foi jogada na constante someNumbers
+console.log(multiplyNumbers(someNumbers)); // aqui só precisou passar a constante someNumbers no console.log pois o retorno da função foi jogada na constante someNumbers
 
 
 
