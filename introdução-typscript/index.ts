@@ -96,3 +96,99 @@ userId = 20;
 
 // type alias
 
+type myIdType = number | string;
+
+const userIdent: myIdType = 10;
+const productId: myIdType = "00223";
+const shirId: myIdType = 1234;
+
+// enum  enumera dados complexos
+// exemplo: tamanho de roupas (size:médio, size:pequeno, size:grande)
+
+enum Size {
+  P = "Pequeno",
+  M = "Médio",
+  G = "Grande",
+};
+
+const camisa = {
+  name: "camisa polo",
+  size: Size.M,
+};
+
+console.log(camisa);
+
+// literal types
+
+let teste: "logado" | null;
+
+//teste = "outro valor"
+
+teste = "logado";
+teste = null;
+
+// functions
+
+function sum (a: number, b: number) { // funções agora precisam ser tipadas
+  return a + b
+}
+
+console.log(sum(5, 8));
+
+//console.log(sum("12", true)); // errado pois são tipos diferentes
+
+function sayHalloTo(name: string): string { // quando é colocado um tipo de dado após o parâmetro, significa que a saída tem que ser uma string
+  return `olá ${name}`
+}
+
+console.log(sayHalloTo("Mateus Macedo"));
+
+function logger(msg: string): void { // criada uma função que não retorna nada
+  console.log(msg);
+}
+
+logger("Logado!");
+
+function greeting(name:string, greet?: string): void { // a interrogação significa que ela pode ou não aparecer
+  //console.log(`olá ${greet} ${name}`); // erro de lógica pois o argumento é opcional porem não estou passando ele
+
+  // tratando o dado o código acima
+
+  if(greet) {
+    console.log(`olá ${greet} ${name}`);
+    return
+  } 
+    console.log(`olá ${name}`);
+  
+};
+
+greeting("Mateus");
+greeting("Macedo", "Senhor");
+
+// interfaces
+
+interface mathFunctionParams {
+  n1: number,
+  n2: number,
+};
+
+function sumNumbers (nums: mathFunctionParams) { // ele está sendo tipado pela interface e só posso passar 2 parâmetros do tipo numérico
+  return nums.n1 + nums.n2;
+}
+
+console.log(sumNumbers({n1:3, n2:1})); // aqui no console log precisou passar os parâmetros e os valores
+
+function multiplyNumbers(nums: mathFunctionParams) {
+  return nums.n1 * nums.n2;
+}
+
+const someNumbers: mathFunctionParams = {
+  n1: 5,
+  n2: 10,
+}
+
+console.log(multiplyNumbers(someNumbers)); // aqui só precisou passar a variaveis pois o retorno da função foi jogada na constante someNumbers
+
+
+
+

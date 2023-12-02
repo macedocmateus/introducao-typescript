@@ -1,45 +1,82 @@
 "use strict";
-// <!-- ------Instalação do typescript---------
-// para instalar o typescript
-// npm i -g typescript
-// para verificar se o typescript foi instalado corretamente
-// tsc -v
-// para criar o arquivo de configuração tsc --init
-// *se caso o powershell estiver barrando os scripts por causa das politicas da microsoft executar os comandos abaixo*:
-// abra o powershell do windows como  administrador e execute os comandos abaixo:
-// get-executionpolicy
-// set-executionpolicy unrestricted
-// digite "s" ou "y"
-// pronto só aproveitar
-// -------------------------------------------->
-// ---------variáveis ---------
-// string, number, boolean
 let x = 10;
 x = 16;
 console.log(x);
-// inferência and annotation
 let y = 12;
-// y = "teste";
 let z = 12;
-// tipos básicos
 let userName = "Mateus";
 let age = 30;
 const isUser = true;
-// objects
 const myNumbers = [1, 2, 3, 4];
 console.log(myNumbers);
 console.log(myNumbers.length);
-// console.log(myNumbers.toUpperCase()); // no typescript ele já me da as funções apropriadas para cada tipo de dado coisa que o javascript não avisa
-console.log(userName.toUpperCase()); // aqui ele já deixa usar pois typescript sabe q userName é um tipo string e a função toUpperCase é para strings
+console.log(userName.toUpperCase());
 myNumbers.push(5);
 console.log(myNumbers);
-// tuplas - tuple
-let myTuple; // é como se fosse um molde de tipos de dado em uma string
+let myTuple;
 myTuple = ["mateus", 30, ["técnico", "desenvolvedor"]];
-// object literals -> {prop:value} propriedade ou chave e valor
 const user = {
     name: "Mateus",
     age: 18,
 };
 console.log(user);
 console.log(user.age);
+let something = 0;
+something = "teste";
+something = true;
+something = [];
+let userId = "10";
+userId = 20;
+const userIdent = 10;
+const productId = "00223";
+const shirId = 1234;
+var Size;
+(function (Size) {
+    Size["P"] = "Pequeno";
+    Size["M"] = "M\u00E9dio";
+    Size["G"] = "Grande";
+})(Size || (Size = {}));
+;
+const camisa = {
+    name: "camisa polo",
+    size: Size.M,
+};
+console.log(camisa);
+let teste;
+teste = "logado";
+teste = null;
+function sum(a, b) {
+    return a + b;
+}
+console.log(sum(5, 8));
+function sayHalloTo(name) {
+    return `olá ${name}`;
+}
+console.log(sayHalloTo("Mateus Macedo"));
+function logger(msg) {
+    console.log(msg);
+}
+logger("Logado!");
+function greeting(name, greet) {
+    if (greet) {
+        console.log(`olá ${greet} ${name}`);
+        return;
+    }
+    console.log(`olá ${name}`);
+}
+;
+greeting("Mateus");
+greeting("Macedo", "Senhor");
+;
+function sumNumbers(nums) {
+    return nums.n1 + nums.n2;
+}
+console.log(sumNumbers({ n1: 3, n2: 1 }));
+function multiplyNumbers(nums) {
+    return nums.n1 * nums.n2;
+}
+const someNumbers = {
+    n1: 5,
+    n2: 10,
+};
+console.log(multiplyNumbers(someNumbers));
