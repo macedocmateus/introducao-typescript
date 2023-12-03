@@ -1,4 +1,10 @@
 "use strict";
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
 let x = 10;
 x = 16;
 console.log(x);
@@ -121,3 +127,47 @@ console.log(user1);
 user1.showUserName();
 user1.showUserAge(true);
 user1.showUserAge(false);
+class Car {
+    constructor(brand, wheels) {
+        this.brand = brand;
+        this.wheels = wheels;
+    }
+    showBrand() {
+        console.log(`a marca do carro é: ${this.brand}`);
+    }
+}
+const fiesta = new Car("vw", 4);
+fiesta.showBrand();
+class superCar extends Car {
+    constructor(brand, wheels, engine) {
+        super(brand, wheels);
+        this.engine = engine;
+    }
+}
+const a5 = new superCar("Audi", 4, 2.0);
+console.log(a5);
+a5.showBrand();
+function baseParameters() {
+    return function (constructor) {
+        return class extends constructor {
+            constructor() {
+                super(...arguments);
+                this.id = Math.random();
+                this.createdAt = new Date();
+            }
+        };
+    };
+}
+;
+let Person = class Person {
+    constructor(name) {
+        this.name = name;
+    }
+    ;
+};
+Person = __decorate([
+    baseParameters()
+], Person);
+;
+const mateus = new Person("Mateus");
+console.log(mateus);

@@ -251,3 +251,71 @@ console.log(user1);
 user1.showUserName();
 user1.showUserAge(true);
 user1.showUserAge(false);
+
+// interfaces em classes
+
+interface iVehicle {
+  brand: string
+  showBrand():void
+}
+
+class Car implements iVehicle {
+
+  brand;
+  wheels;
+
+  constructor(brand: string, wheels: number) {
+    this.brand = brand;
+    this.wheels = wheels;
+  }
+
+  showBrand(): void {
+    console.log(`a marca do carro é: ${this.brand}`);
+  }
+}
+  const fiesta = new Car("vw" , 4);
+  fiesta.showBrand();
+
+  // herança
+
+  class superCar extends Car { // extends serve para reutilizar como herança os dados da classe Car
+    engine; // esse engine foi criado exclusivamente para classe superCar
+
+    constructor(brand:string, wheels:number, engine:number) { // e no construtor é preciso tipar tantos os dados vindo como herança como o dado exclusivo da classe superCar
+      super(brand, wheels) // aqui está estabelecendo o uso da herança
+      this.engine = engine
+    }
+  }
+
+  const a5 = new superCar("Audi", 4, 2.0) // e na construção do carro é passado como parametro o brand, o wheels pois são da herança e o 2.0 que é do engine exluciso do superCar
+
+  console.log(a5);
+  a5.showBrand();
+
+  // decorators (utilizado para validação de dados e intervir em um ponto específico)
+  
+  // constructor decorator
+  function baseParameters() {
+    return function <T extends {new (...args:any[]):{}}>(constructor: T) {
+      return class extends constructor {
+        id = Math.random();
+        createdAt = new Date();
+      };
+    };
+  };
+  
+  @baseParameters()
+  class Person {
+    name
+
+    constructor(name:string) {
+      this.name = name;
+    };
+  };
+
+  const mateus = new Person ("Mateus")
+  
+  console.log(mateus);
+
+
+
